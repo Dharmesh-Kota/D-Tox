@@ -1,0 +1,39 @@
+<title>
+    <%= title %>
+</title>
+<link rel="stylesheet" href="\css\signUp.css" type="text/css">
+
+<main>
+    <div id="main">
+        <h1 style="text-align: center;">D-Tox</h1>
+        <form action="/users/createUser" method="post">
+            <div id="fname">
+                <label for="fname">First Name</label>
+                <input type="text" name="fname" id="fname" placeholder="Enter First Name" class="borders">
+            </div>
+            <div id="lname">
+                <label for="lname">Last Name</label>
+                <input type="text" name="lname" id="lname" placeholder="Enter Last Name" class="borders">
+            </div>
+            <div id="email">
+                <label for="email">E-Mail</label>
+                <input type="text" name="email" id="email" placeholder="abc@example.com" class="borders">
+            </div>
+            <div id="password">
+                <label for="pass">Password </label>
+                <input type="password" id="pass" name="password" placeholder="Create Password" class="borders">
+            </div>
+            <div id="re-password">
+                <label for="repass">Re-enter Password </label>
+                <input type="password" id="repass" name="repass" placeholder="Confirm Password" class="borders">
+            </div>
+            <button type="submit" class="borders" id="submit">Register</button>
+        </form>   
+        
+        <p>
+            <a href="/users/auth/google">Sign Up using Google</a>
+        </p>
+
+    </div>    
+
+</main>   

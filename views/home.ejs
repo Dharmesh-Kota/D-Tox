@@ -1,0 +1,75 @@
+<link rel="stylesheet" type="text/css" href="\css\home.css">
+
+<main>
+    <section id="feed-posts">
+        <h1>Welcome to D-Tox</h1>
+        <h4>Posts</h4>
+        <% if (locals.user) { %>
+            <form action="/posts/create" method="POST" id="new-post">
+                <textarea name="content" cols="30" rows="3" placeholder="Type your text here..." required></textarea>
+                <input type="submit" value='Post'>
+            </form>
+        <% } %>
+        
+        <div id="posts-container">
+            <ul>
+                <% for(post of posts){ %>
+                    <%- include('_posts') -%>
+                <% } %>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="user-friends">
+        <h4>
+            Friends
+        </h4>
+
+        <ul>
+            <% for(u of all_users){ %>
+                <li>
+                    <a href="/users/profile/<%=u.id%>"><%=u.fname + ' ' + u.lname %></a>
+                </li>
+            <%}%>
+        </ul>
+        
+    </section>
+
+    <%- include('_chat_box') -%>
+    
+</main>
+
+<!-- importing the script files and also running it over all the posts and comments present already on the page -->
+<script src="\js\home_comments.js"></script>
+<script src="\js\home_posts.js"></script>
+<script src="\js\toggle_likes.js"></script>
+
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    });
+</script>
+
+<!-- friends script -->
+<script src="\js\friendship.js"></script>
+<script>
+    //$('#friend-button').each(function(){
+      //  let self = this;
+        //let friendship = new Friendship(self);
+    //})
+
+    let friendship = new Friendship('friend-button');
+    
+</script>
+
+<!-- Connecting/Including the socket.io libraries and chat engine -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
+<script src="/js/chat_engine.js"></script> -->
+
+<!-- Connecting to Chat Engine to establish the connection --> 
+<!-- <% if (locals.user) {%>
+<script>
+    new ChatEngine('user-chat-box', '<%= locals.user.email%>'); 
+</script> -->
+<!-- <%}%> -->

@@ -1,0 +1,32 @@
+<title>D-Tox | Profile</title>
+<link rel="stylesheet" href="\css\profile.css" type="text/css">
+<main>
+
+    <img src="<%= profile_user.avatar %>" alt="<%= profile_user.fname %>" width="100">
+
+    <% if(user.id == profile_user.id) {%> 
+        <h1>Profile Section</h1>
+        <p>First name: <%= profile_user.fname %></p>
+        <p>Last Name: <%= profile_user.lname %></p>
+        <p>E-Mail: <%= profile_user.email %></p>
+        <form action="/users/update/<%=profile_user.id%>" enctype="multipart/form-data" method="post">
+            <input type="text" name="fname" value="<%=profile_user.fname%>" placeholder="Enter first name" required>
+            <input type="text" name="lname" value="<%=profile_user.lname%>" placeholder="Enter last name" required>
+            <input type="email" name="email" value="<%=profile_user.email%>" placeholder="Enter your E-Mail" required>
+            <input type="file" name="avatar" placeholder="Profile Picture!">
+            <button type="submit">Update</button>
+        </form>
+    <%} else { %>
+        <h1>Profile Section</h1>
+        <p>First name: <%= profile_user.fname %></p>
+        <p>Last Name: <%= profile_user.lname %></p>
+        <p>E-Mail: <%= profile_user.email %></p>
+        <!-- <a href="/friends/manage/?fromUser=<%=user.id%>&toUser=<%=profile_user.id%>" id="friend-button">
+            Add Friend
+        </a> -->
+        <form action="/friends/manage/?fromUser=<%=user.id%>&toUser=<%=profile_user.id%>" method="post">
+            <input type="submit" value="Add Friend" id="friend-button">
+        </form>
+    <% } %>
+
+</main>

@@ -1,0 +1,30 @@
+<title>
+    <%= title %>
+</title>
+<link rel="stylesheet" href="\css\signIn.css" type="text/css">
+
+<div id="main">
+    <h1>D-Tox</h1>
+    <form action="/users/createSession" method="post">
+        <div id="email">
+            <label for="email">E-Mail :&nbsp; &nbsp;</label>
+            <input type="text" name="email" id="email" placeholder="abc@example.com" class="borders">
+        </div>
+        <div id="password">
+            <label for="pass">Password: </label>
+            <input type="password" id="pass" name="password" class="borders">
+        </div>
+        <small>
+            <a href="/users/forgetPass">Forgot Passowrd?</a>
+        </small><br>
+        <button type="submit" class="borders" id="submit">Sign In</button>
+        <div id="newUser">
+            <p>New User? <a href="/users/signUp">Sign Up here</a></p>
+        </div>
+    </form>  
+    
+    <p>
+        <a href="/users/auth/google">Sign In using Google</a>
+    </p>  
+    
+</div>  

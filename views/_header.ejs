@@ -1,0 +1,16 @@
+<header>
+    
+    <div id="dTox">
+        D-Tox
+    </div>
+    <div id="logs">
+        <% if (locals.user) { %>
+            <a href="/users/profile/<%=user.id%>"><%=user.fname%></a>
+            <a href="/users/signOut">Sign Out</a>
+        <% } else { %>
+            <a href="/users/signIn">Sign In</a>
+            <a href="/users/signUp">Sign Up </a>
+        <% } %>
+    </div>
+
+</header>
